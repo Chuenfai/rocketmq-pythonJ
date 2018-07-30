@@ -20,6 +20,7 @@ startJVM(
 from rocketmq.DefaultMQProducer import *
 from rocketmq.Message import *
 from rocketmq.DefaultMQPushConsumer import *
+from rocketmq.MessageListener import msgListenerConcurrentlyProxy
 
 def processMessages(msgs):
     for msg in msgs:
@@ -37,7 +38,7 @@ try:
     consumer.subscribe('PythonTest', '')
     consumer.setClientIP('10.61.2.125')
     print('consumer start...')
-    consumer.registerMessageListenerConcurrently(processMessages)
+    consumer.registerMessageListenerConcurrently(msgListenerConcurrentlyProxy)
     consumer.start()
     print('consumer ip - ' + consumer.getClientIP())
     # time.sleep(2 * 1000)

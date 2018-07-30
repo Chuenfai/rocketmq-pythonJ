@@ -1,13 +1,21 @@
 from jpype import *
 
-__all__ = []
+__all__ = ['msgListenerConcurrentlyProxy']
+from Status import *
 
 class MessageListenerConcurrently(object):
     
     def consumeMessage(self, msgs, context):
-        
-        pass
+        for msg in msgs:
+            print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + str(msg.getBody()).decode('utf-8') + ']')
+        return ConsumeConcurrentlyStatus['SUCCESS']
 
+msgListenerConcurrently = MessageListenerConcurrently()
+#JProxy("MessageListenerConcurrently", inst = msgListenerConcurrently)
+msgListenerConcurrentlyProxy = JProxy(
+    "org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently, 
+    inst = msgListenerConcurrently
+)
 
 class MessageListenerOrderly(object):
     def consumeMessage(self, msgs, context):
