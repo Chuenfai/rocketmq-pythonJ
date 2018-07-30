@@ -44,6 +44,6 @@ try:
     # consumer.shutdown()
     # producer.shutdown()
     shutdownJVM()
-except jpype.JException(java.lang.RuntimeException), ex:
+except jpype.JException(java.lang.RuntimeException):
     print("Caught the runtime exception : " + JavaException.message())
     print(JavaException.stackTrace())
