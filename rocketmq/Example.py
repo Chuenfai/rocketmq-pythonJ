@@ -22,7 +22,7 @@ from rocketmq.Message import *
 from rocketmq.DefaultMQPushConsumer import *
 
 def processMessages(msgs):
-    print(msgs)
+    print(len(msgs))
     for msg in msgs:
         print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody().decode('utf-8') + ']')
     
