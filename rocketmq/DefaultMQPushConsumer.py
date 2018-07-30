@@ -24,6 +24,9 @@ class DefaultMQPushConsumer(object):
     def getClientIP(self):
         return self.__consumer.getClientIP()
 
+    def setClientIP(self, clientIP):
+        self.__consumer.setClientIP(clientIP)
+
     def registerMessageListenerConcurrently(self, func):
         def _consumeMessage(msgs, context):
             if func(msgs):
