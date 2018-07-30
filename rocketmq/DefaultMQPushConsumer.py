@@ -22,11 +22,12 @@ class DefaultMQPushConsumer(object):
         self.__consumer.start()
 
     def registerMessageListenerConcurrently(self, func):
-        def _consumeMessage(self, msgs, context):
+        def _consumeMessage(msgs, context):
             if func(msgs):
                 return ConsumeConcurrentlyStatus['SUCCESS']
             else:
                 return ConsumeConcurrentlyStatus['RECONSUME_LATER']
+
         listener = JProxy(
             "org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently", 
             dict={'consumeMessage': _consumeMessage}
