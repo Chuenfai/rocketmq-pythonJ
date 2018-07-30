@@ -22,7 +22,6 @@ from rocketmq.Message import *
 from rocketmq.DefaultMQPushConsumer import *
 
 def processMessages(msgs):
-    print(len(msgs))
     for msg in msgs:
         print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
     
@@ -34,6 +33,7 @@ def processMessages(msgs):
 # producer.send(msg.getMessage())
 consumer = DefaultMQPushConsumer('python_push_consumer', '10.61.2.125:9876')
 consumer.subscribe('PythonTest', '')
+print('start...')
 consumer.registerMessageListenerConcurrently(processMessages)
 consumer.start()
 logger.info('consumerip: ' + consumer.getClientIP())
