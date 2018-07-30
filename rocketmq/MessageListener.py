@@ -6,14 +6,11 @@ from Status import *
 class MessageListenerConcurrently:
     
     def consumeMessage(self, msgs, context):
-        try:
-            print('receive msg: ' + str(len(msgs)))
-            # for msg in msgs:
-            #     print type(msg)
-            #         # print('[' + msg.getTopic() + ']')
-        except jpype.JException(java.lang.RuntimeException):
-            print("Caught the runtime exception : " + JavaException.message())
-            print(JavaException.stackTrace())
+        
+        print('receive msg: ' + str(len(msgs)))
+        # for msg in msgs:
+        #     print type(msg)
+        #         # print('[' + msg.getTopic() + ']')
         return ConsumeConcurrentlyStatus['SUCCESS']
 
 msgListenerConcurrently = MessageListenerConcurrently()
