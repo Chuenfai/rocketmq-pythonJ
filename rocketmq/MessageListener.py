@@ -7,7 +7,7 @@ class MessageListenerConcurrently(object):
     
     def consumeMessage(self, msgs, context):
         for msg in msgs:
-            print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
+            print('[' + msg.getTopic() + ']')
         return ConsumeConcurrentlyStatus['SUCCESS']
 
 msgListenerConcurrently = MessageListenerConcurrently()
