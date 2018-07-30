@@ -24,7 +24,7 @@ from rocketmq.DefaultMQPushConsumer import *
 def processMessages(msgs):
     print(msgs)
     for msg in msgs:
-        print('[' + msg.getTopic() + '] [' + msg.getMsgId + '] [' + msg.getBody().decode('utf-8') + ']')
+        print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody().decode('utf-8') + ']')
     
     return True
 
