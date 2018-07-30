@@ -6,7 +6,7 @@ from Status import *
 class MessageListenerConcurrently(object):
     
     def consumeMessage(self, msgs, context):
-        print('receive msg: ' + len(msg))
+        print('receive msg: ' + len(msgs))
         # for msg in msgs:
         #     print type(msg)
         #         # print('[' + msg.getTopic() + ']')
