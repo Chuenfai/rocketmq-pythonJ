@@ -3,7 +3,7 @@ from jpype import *
 __all__ = ['msgListenerConcurrentlyProxy']
 from Status import *
 
-class MessageListenerConcurrently(object):
+class MessageListenerConcurrently:
     
     def consumeMessage(self, msgs, context):
         try:
