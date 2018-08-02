@@ -42,7 +42,7 @@ def startConsumer():
     consumer.start()
     print('consumer stated')
 
-threading.Thread(target=action,args=(0,)).start()
+threading.Thread(target=startConsumer, args=(0,)).start()
 
 time.sleep(2 * 1000)
 print('main thread end')
