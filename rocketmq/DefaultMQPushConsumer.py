@@ -39,6 +39,7 @@ class DefaultMQPushConsumer(object):
         #     dict={'consumeMessage': _consumeMessage}
         # )
         self.__consumer.registerMessageListener(listener)
+        print('register consumer')
     
     def shutdown(self):
         self.__consumer.shutdown()

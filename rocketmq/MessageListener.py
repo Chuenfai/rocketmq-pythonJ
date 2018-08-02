@@ -14,7 +14,7 @@ class MessageListenerConcurrently:
         return ConsumeConcurrentlyStatus['SUCCESS']
 
 msgListenerConcurrently = MessageListenerConcurrently()
-#JProxy("MessageListenerConcurrently", inst = msgListenerConcurrently)
+# JProxy("MessageListenerConcurrently", inst = msgListenerConcurrently)
 msgListenerConcurrentlyProxy = JProxy(
     "org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently", 
     inst = msgListenerConcurrently
