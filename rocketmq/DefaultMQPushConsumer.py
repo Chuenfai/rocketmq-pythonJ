@@ -20,12 +20,13 @@ class DefaultMQPushConsumer(object):
 
     def start(self):
         self.__consumer.start()
+        print('consumer start')
 
     def getClientIP(self):
         return self.__consumer.getClientIP()
 
     def setClientIP(self, clientIP):
-        self.__consumer.setClientIP(clientIP)
+        self.__consumer.setClientIP(JString(clientIP))
 
     def registerMessageListenerConcurrently(self, listener):
         # def _consumeMessage(msgs, context):
