@@ -34,17 +34,25 @@ from rocketmq.MessageListener import msgListenerConcurrentlyProxy
 # msg = Message('PythonTest', '', '', 'this is a first message from python sdk.'.encode('utf-8'))
 # producer.send(msg.getMessage())
 
-def startConsumer():
-    consumer = DefaultMQPushConsumer('python_push_consumer', '10.61.2.125:9876')
-    consumer.subscribe('PythonTest', '')
-    consumer.setClientIP('10.61.2.125')
-    consumer.registerMessageListenerConcurrently(msgListenerConcurrentlyProxy)
-    consumer.start()
-    print('consumer stated')
+# def startConsumer():
+#     consumer = DefaultMQPushConsumer('python_push_consumer', '10.61.2.125:9876')
+#     consumer.subscribe('PythonTest', '')
+#     consumer.setClientIP('10.61.2.125')
+#     consumer.registerMessageListenerConcurrently(msgListenerConcurrentlyProxy)
+#     consumer.start()
+#     print('consumer stated')
 
-threading.Thread(target=startConsumer).start()
+# threading.Thread(target=startConsumer).start()
 
-time.sleep(2 * 1000)
+consumer = DefaultMQPushConsumer('python_push_consumer', '10.61.2.125:9876')
+consumer.subscribe('PythonTest', '')
+consumer.setClientIP('10.61.2.125')
+consumer.registerMessageListenerConcurrently(msgListenerConcurrentlyProxy)
+consumer.start()
+print('consumer stated')
+
+while True:
+    time.sleep(10)
 print('main thread end')
 # consumer.shutdown()
 # producer.shutdown()
