@@ -27,7 +27,7 @@ from rocketmq.DefaultMQPushConsumer import *
     
 #     return True
 
-producer = DefaultMQProducer('python_producer', '10.61.2.125:9876')
+producer = DefaultMQProducer('', '10.61.2.125:9876')
 producer.start()
 msg = Message('PythonTest', '', '', 'this is a first message from python sdk.'.encode('utf-8'))
 

@@ -17,7 +17,6 @@ class DefaultMQProducer(object):
         self.__nameServer = nameServer
         self.__producer = DefaultMQProducerJ(JString(groupName))
         self.__producer.setNamesrvAddr(JString(nameServer))
-        
 
     def start(self):
         self.__producer.start()
