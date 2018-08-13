@@ -21,13 +21,13 @@ import threading
 from rocketmq.DefaultMQProducer import *
 from rocketmq.Message import *
 from rocketmq.DefaultMQPushConsumer import *
-from rocketmq.MessageListener import msgListenerConcurrentlyProxy
+# from rocketmq.MessageListener import msgListenerConcurrentlyProxy
 
-# def processMessages(msgs):
-#     for msg in msgs:
-#         print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
+def processMessages(messages):
+    for msg in msgs:
+        print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
     
-#     return True
+    return True
 
 # producer = DefaultMQProducer('python_producer', '10.61.2.125:9876')
 # producer.start()
@@ -47,13 +47,15 @@ from rocketmq.MessageListener import msgListenerConcurrentlyProxy
 consumer = DefaultMQPushConsumer('python_push_consumer', '10.61.2.125:9876')
 consumer.subscribe('PythonTest', '')
 consumer.setClientIP('10.61.2.125')
-consumer.registerMessageListenerConcurrently(msgListenerConcurrentlyProxy)
+
+# consumer.registerMessageListenerConcurrently(msgListenerConcurrentlyProxy)
+consumer.registerMessageListenerConcurrently(processMessages)
 consumer.start()
 print('consumer started')
 
 while True:
     time.sleep(10)
-print('main thread end')
+
 # consumer.shutdown()
 # producer.shutdown()
 # shutdownJVM()
