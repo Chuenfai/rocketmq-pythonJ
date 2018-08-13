@@ -8,18 +8,18 @@ from jpype import *
 import settings
 
 jvmPath = getDefaultJVMPath()
-# startJVM(
-#     jvmPath, 
-#     settings.JVM_RUN_MODE, 
-#     settings.JVM_HEAP_XMS, 
-#     settings.JVM_HEAP_XMX, 
-#     settings.JVM_HEAP_XMN,
-#     settings.JAVA_EXT_DIRS
-# )
 startJVM(
-    jvmPath,
-    settings.JVM_OPTIONS
+    jvmPath, 
+    settings.JVM_RUN_MODE, 
+    settings.JVM_HEAP_XMS, 
+    settings.JVM_HEAP_XMX, 
+    settings.JVM_HEAP_XMN,
+    settings.JAVA_EXT_DIRS
 )
+# startJVM(
+#     jvmPath,
+#     settings.JVM_OPTIONS
+# )
 
 from rocketmq.DefaultMQProducer import *
 from rocketmq.Message import *
