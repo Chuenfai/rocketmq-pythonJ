@@ -41,7 +41,7 @@ class DefaultMQPushConsumer:
         """ process must be a function and must return a bool value.
         """
         if not isfunction(process):
-            raise Exception, "second argument must be a function."
+            raise Exception("second argument must be a function.")
         else:
             def consumeMessage_(messages, context):
                 if process(messages):
