@@ -13,7 +13,7 @@ class MessageListenerConcurrently:
         return ConsumeConcurrentlyStatus['SUCCESS']
 
     def toString(self):
-        pass
+        return "this is message listener concurrently."
 
 msgListenerConcurrently = MessageListenerConcurrently()
 # JProxy("MessageListenerConcurrently", inst = msgListenerConcurrently)
