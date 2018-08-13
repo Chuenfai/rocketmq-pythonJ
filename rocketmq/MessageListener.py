@@ -12,6 +12,9 @@ class MessageListenerConcurrently:
             print('[' + msg.getTopic() + '] [' + msg.getMsgId() + ']')
         return ConsumeConcurrentlyStatus['SUCCESS']
 
+    def toString(self):
+        pass
+
 msgListenerConcurrently = MessageListenerConcurrently()
 # JProxy("MessageListenerConcurrently", inst = msgListenerConcurrently)
 msgListenerConcurrentlyProxy = JProxy(
