@@ -20,7 +20,6 @@ class DefaultMQPushConsumer(object):
 
     def start(self):
         self.__consumer.start()
-        print('consumer started')
 
     def getClientIP(self):
         return self.__consumer.getClientIP()

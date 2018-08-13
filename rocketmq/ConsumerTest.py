@@ -49,7 +49,7 @@ consumer.subscribe('PythonTest', '')
 consumer.setClientIP('10.61.2.125')
 consumer.registerMessageListenerConcurrently(msgListenerConcurrentlyProxy)
 consumer.start()
-print('consumer stated')
+print('consumer started')
 
 while True:
     time.sleep(10)

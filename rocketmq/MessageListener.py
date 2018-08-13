@@ -9,7 +9,7 @@ class MessageListenerConcurrently:
         
         # print('receive msg: ' + str(len(msgs)))
         for msg in msgs:
-            print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
+            print('[' + msg.getTopic() + '] [' + msg.getMsgId() + ']')
         return ConsumeConcurrentlyStatus['SUCCESS']
 
 msgListenerConcurrently = MessageListenerConcurrently()
