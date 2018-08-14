@@ -1,7 +1,7 @@
 import logging
 import time
 from jpype import *
-from rocketmq import Settings
+import Settings
 
 logger = logging.getLogger("MQProducer")
 

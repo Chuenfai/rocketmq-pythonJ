@@ -4,7 +4,7 @@
 import logging
 from inspect import isfunction
 from jpype import *
-from rocketmq.Status import *
+import Settings
 
 __all__ = ['DefaultMQPushConsumer']
 
