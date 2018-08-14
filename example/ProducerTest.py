@@ -3,6 +3,8 @@ import os
 import time
 sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 
+print(sys.path)
+
 # from rocketmq import Settings
 
 # jvmPath = getDefaultJVMPath()
