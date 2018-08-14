@@ -1,7 +1,7 @@
 import sys
 import os
-from pyrmq import *
 sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
+from pyrmq import *
 
 def processMessages(messages):
     for msg in messages:
