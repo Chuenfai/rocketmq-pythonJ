@@ -29,7 +29,7 @@ startJVM(
     JAVA_OPTIONS_DICT['JVM_HEAP_XMS'], 
     JAVA_OPTIONS_DICT['JVM_HEAP_XMX'], 
     JAVA_OPTIONS_DICT['JVM_HEAP_XMN'],
-    JAVA_OPTIONS_DICT['JAVA_EXT_DIRS']
+    JAVA_EXT_DIRS
 )               
 
 _MessageJ = JPackage('org.apache.rocketmq.common.message').Message
