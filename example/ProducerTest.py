@@ -3,9 +3,9 @@ import os
 import time
 sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 
-print(sys.path)
+# print(sys.path)
 
-# from rocketmq import Settings
+# # from rocketmq import Settings
 
 # jvmPath = getDefaultJVMPath()
 # startJVM(
@@ -21,6 +21,10 @@ print(sys.path)
 #     settings.JVM_OPTIONS
 # )
 
+from rocketmq.JVM import JVM
+env = JVM()
+env.start()
+
 from rocketmq.DefaultMQProducer import *
 from rocketmq.Message import *
 from rocketmq.DefaultMQPushConsumer import *
@@ -33,14 +37,13 @@ from rocketmq.DefaultMQPushConsumer import *
 
 producer = DefaultMQProducer('python_producer', '10.61.2.125:9876')
 producer.start()
+print('producer start...')
 msg = Message('PythonTest', '', '', 'this is a first message from python sdk.'.encode('utf-8'))
-
 for i in range(10):
     producer.send(msg.getMessage())
 # consumer = DefaultMQPushConsumer('python_push_consumer', '10.61.2.125:9876')
 # consumer.subscribe('PythonTest', '')
 # consumer.setClientIP('10.61.2.125')
-print('producer start...')
 # consumer.registerMessageListenerConcurrently(processMessages)
 # consumer.start()
 # print('consumer ip - ' + consumer.getClientIP())
@@ -48,3 +51,4 @@ print('producer start...')
 # consumer.shutdown()
 producer.shutdown()
 # shutdownJVM()
+env.shutdown()
