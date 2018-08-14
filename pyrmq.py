@@ -94,5 +94,5 @@ def registerListener(consumer, process):
 def shutdownConsumer(consumer):
     consumer.shutdown()
 
-def shutdownJVM():
+def shutdownENV():
     shutdownJVM()

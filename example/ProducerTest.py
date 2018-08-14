@@ -73,4 +73,4 @@ for i in range(10):
     print(sendMessage(producer, msg))
 
 shutdownProducer(producer)
-shutdownJVM()
+shutdownENV()
