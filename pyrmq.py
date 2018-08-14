@@ -21,6 +21,7 @@ JAVA_OPTIONS_DICT = {
 """ import Java class from Java package.
 """
 from jpype import *
+from inspect import isfunction
 
 jvmPath = getDefaultJVMPath()
 startJVM(
