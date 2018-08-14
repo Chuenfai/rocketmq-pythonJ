@@ -6,9 +6,9 @@ sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 
 # # from rocketmq import Settings
 
-from jpype import *
+# from jpype import *
 
-jvmPath = getDefaultJVMPath()
+# jvmPath = getDefaultJVMPath()
 # startJVM(
 #     jvmPath, 
 #     Settings.JVM_RUN_MODE, 
@@ -17,16 +17,16 @@ jvmPath = getDefaultJVMPath()
 #     Settings.JVM_HEAP_XMN,
 #     Settings.JAVA_EXT_DIRS
 # )
-ROCKETMQ_HOME = os.path.split(os.path.realpath(__file__))[0] + '/lib'
-JAVA_EXT_DIRS = "-Djava.ext.dirs=" + ROCKETMQ_HOME
-startJVM(
-    jvmPath, 
-    '-server', 
-    '-Xmx8g', 
-    '-Xmn4g', 
-    '-Xms8g',
-    JAVA_EXT_DIRS
-)
+# ROCKETMQ_HOME = os.path.split(os.path.realpath(__file__))[0] + '/lib'
+# JAVA_EXT_DIRS = "-Djava.ext.dirs=" + ROCKETMQ_HOME
+# startJVM(
+#     jvmPath, 
+#     '-server', 
+#     '-Xmx8g', 
+#     '-Xmn4g', 
+#     '-Xms8g',
+#     JAVA_EXT_DIRS
+# )
 # startJVM(
 #     jvmPath,
 #     settings.JVM_OPTIONS

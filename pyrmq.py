@@ -8,7 +8,7 @@
 import os
 import sys
 
-ROCKETMQ_HOME = os.path.split(os.path.realpath(__file__))[0]
+ROCKETMQ_HOME = os.path.split(os.path.realpath(__file__))[0] + '/lib'
 JAVA_EXT_DIRS = "-Djava.ext.dirs=" + ROCKETMQ_HOME
 JAVA_OPTIONS_DICT = {
     "JVM_HEAP_XMS": "-Xms8g",
@@ -22,7 +22,7 @@ JVM_OPTIONS_TUPLE = ('-server', '-Xms256m', '-Xmx256m', '-Xmn128m', JAVA_EXT_DIR
 """
 from jpype import *
 
-# jvmPath = getDefaultJVMPath()
+jvmPath = getDefaultJVMPath()
 # startJVM(
 #     jvmPath,
 #     JAVA_OPTIONS_DICT['JVM_RUN_MODE'], 
@@ -30,7 +30,11 @@ from jpype import *
 #     JAVA_OPTIONS_DICT['JVM_HEAP_XMX'], 
 #     JAVA_OPTIONS_DICT['JVM_HEAP_XMN'],
 #     JAVA_EXT_DIRS
-# )               
+# )
+startJVM(
+    jvmPath,
+    JVM_OPTIONS_TUPLE
+)               
 
 _MessageJ = JPackage('org.apache.rocketmq.common.message').Message
 _DefaultMQProducerJ = JPackage('org.apache.rocketmq.client.producer').DefaultMQProducer
