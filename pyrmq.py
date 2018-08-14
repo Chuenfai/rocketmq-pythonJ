@@ -63,7 +63,7 @@ def shutdownProducer(producer):
     producer.shutdown()
     print('producer shutdown.')
 
-def buildConsumer(groupname, namesrv):
+def buildPushConsumer(groupname, namesrv):
     consumer = _DefaultMQPushConsumerJ(JString(groupname))
     consumer.setNamesrvAddr(namesrv)
     return consumer
@@ -71,7 +71,7 @@ def buildConsumer(groupname, namesrv):
 def subscribe(consumer, topic, subexpression):
     consumer.subscribe(JString(topic), JString(subexpression))
 
-def setClientIP(consumer, clientip):
+def setConsumerClientIP(consumer, clientip):
     """ if there are two more ip address on a machine, you should 
         specify one of address.
     """
