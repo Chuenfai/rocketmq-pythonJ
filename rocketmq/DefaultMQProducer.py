@@ -1,6 +1,7 @@
 import logging
 import time
 from jpype import *
+from rocketmq import Settings
 
 logger = logging.getLogger("MQProducer")
 
@@ -14,6 +15,15 @@ class DefaultMQProducer(object):
     """
     """
     def __init__(self, groupName, nameServer):
+        jvmPath = getDefaultJVMPath()
+        startJVM(
+            jvmPath, 
+            Settings.JVM_RUN_MODE, 
+            Settings.JVM_HEAP_XMS, 
+            Settings.JVM_HEAP_XMX, 
+            Settings.JVM_HEAP_XMN,
+            Settings.JAVA_EXT_DIRS
+        )
         self.__producerGroup = groupName
         self.__nameServer = nameServer
         self.__producer = DefaultMQProducerJ(JString(groupName))
@@ -28,4 +38,5 @@ class DefaultMQProducer(object):
 
     def shutdown(self):
         self.__producer.shutdown()
+        shutdownJVM()
         pass

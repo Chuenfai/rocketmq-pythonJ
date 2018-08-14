@@ -1,21 +1,19 @@
-# -*- coding: utf-8 -*-
-
-import sys
-import os
-import time
+# import sys
+# import os
+# import time
 # sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
-from jpype import *
-from rocketmq import Settings
 
-jvmPath = getDefaultJVMPath()
-startJVM(
-    jvmPath, 
-    Settings.JVM_RUN_MODE, 
-    Settings.JVM_HEAP_XMS, 
-    Settings.JVM_HEAP_XMX, 
-    Settings.JVM_HEAP_XMN,
-    Settings.JAVA_EXT_DIRS
-)
+# from rocketmq import Settings
+
+# jvmPath = getDefaultJVMPath()
+# startJVM(
+#     jvmPath, 
+#     Settings.JVM_RUN_MODE, 
+#     Settings.JVM_HEAP_XMS, 
+#     Settings.JVM_HEAP_XMX, 
+#     Settings.JVM_HEAP_XMN,
+#     Settings.JAVA_EXT_DIRS
+# )
 # startJVM(
 #     jvmPath,
 #     settings.JVM_OPTIONS
@@ -47,4 +45,4 @@ print('producer start...')
 # time.sleep(2 * 1000)
 # consumer.shutdown()
 producer.shutdown()
-shutdownJVM()
+# shutdownJVM()
