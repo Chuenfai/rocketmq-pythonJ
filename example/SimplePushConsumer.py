@@ -4,7 +4,7 @@ from pyrmq import *
 sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 
 def processMessages(messages):
-    for msg in msgs:
+    for msg in messages:
         print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody().decode('utf-8') + ']')
     return True
 
