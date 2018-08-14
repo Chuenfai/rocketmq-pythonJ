@@ -8,7 +8,7 @@
 import os
 import sys
 
-ROCKETMQ_PATH = os.path.split(os.path.realpath(__file__))[0]
+ROCKETMQ_HOME = os.path.split(os.path.realpath(__file__))[0]
 JAVA_EXT_DIRS = "-Djava.ext.dirs=" + ROCKETMQ_HOME
 JAVA_OPTIONS_DICT = {
     "JVM_HEAP_XMS": "-Xms8g",
