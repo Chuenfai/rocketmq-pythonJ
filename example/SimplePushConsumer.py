@@ -8,7 +8,7 @@ def processMessages(messages):
         print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody().decode('utf-8') + ']')
     return True
 
-consumer = buildConsumer('python_push_consumer', '10.61.2.125:9876')
+consumer = buildPushConsumer('python_push_consumer', '10.61.2.125:9876')
 subscribe(consumer, 'PythonTest', '')
 setConsumerClientIP('10.61.2.125')
 
