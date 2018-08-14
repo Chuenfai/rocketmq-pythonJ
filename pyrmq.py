@@ -51,7 +51,7 @@ def buildMessage(topic, tags, keys, body):
 
 def buildProducer(groupname, namesrv):
     producer = _DefaultMQProducerJ(JString(groupname))
-    producer.setNamesrvAddr(JString(nameServer))
+    producer.setNamesrvAddr(JString(namesrv))
     return producer
 
 def sendMessage(producer, message):
