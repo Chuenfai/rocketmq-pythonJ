@@ -22,15 +22,15 @@ JVM_OPTIONS_TUPLE = ('-server', '-Xms256m', '-Xmx256m', '-Xmn128m', JAVA_EXT_DIR
 """
 from jpype import *
 
-jvmPath = getDefaultJVMPath()
-startJVM(
-    jvmPath,
-    JAVA_OPTIONS_DICT['JVM_RUN_MODE'], 
-    JAVA_OPTIONS_DICT['JVM_HEAP_XMS'], 
-    JAVA_OPTIONS_DICT['JVM_HEAP_XMX'], 
-    JAVA_OPTIONS_DICT['JVM_HEAP_XMN'],
-    JAVA_EXT_DIRS
-)               
+# jvmPath = getDefaultJVMPath()
+# startJVM(
+#     jvmPath,
+#     JAVA_OPTIONS_DICT['JVM_RUN_MODE'], 
+#     JAVA_OPTIONS_DICT['JVM_HEAP_XMS'], 
+#     JAVA_OPTIONS_DICT['JVM_HEAP_XMX'], 
+#     JAVA_OPTIONS_DICT['JVM_HEAP_XMN'],
+#     JAVA_EXT_DIRS
+# )               
 
 _MessageJ = JPackage('org.apache.rocketmq.common.message').Message
 _DefaultMQProducerJ = JPackage('org.apache.rocketmq.client.producer').DefaultMQProducer
