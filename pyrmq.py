@@ -9,7 +9,6 @@ import os
 import sys
 
 ROCKETMQ_HOME = os.path.join(os.path.split(os.path.realpath(__file__))[0], 'lib')
-print(ROCKETMQ_HOME)
 JAVA_EXT_DIRS = "-Djava.ext.dirs=" + ROCKETMQ_HOME
 JAVA_OPTIONS_DICT = {
     "JVM_HEAP_XMS": "-Xms8g",
@@ -17,7 +16,7 @@ JAVA_OPTIONS_DICT = {
     "JVM_HEAP_XMN": "-Xmn4g",
     "JVM_RUN_MODE": "-server"
 }
-JVM_OPTIONS_TUPLE = ('-server', '-Xms256m', '-Xmx256m', '-Xmn128m', JAVA_EXT_DIRS)
+# JVM_OPTIONS_TUPLE = ('-server', '-Xms256m', '-Xmx256m', '-Xmn128m', JAVA_EXT_DIRS)
 
 """ import Java class from Java package.
 """
