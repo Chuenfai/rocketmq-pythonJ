@@ -3,7 +3,7 @@ import logging
 
 __all__ = ['Message']
 
-__MessageJ = JPackage('org.apache.rocketmq.common.message').Message
+MessageJ = JPackage('org.apache.rocketmq.common.message').Message
 
 class Message(object):
 
@@ -18,7 +18,7 @@ class Message(object):
             self.__tags = tags
             self.__keys = keys
             self.__body = body
-            self.__message = __MessageJ(JString(topic), JString(tags), JString(keys), body)
+            self.__message = MessageJ(JString(topic), JString(tags), JString(keys), body)
 
     def getMessage(self):
         return self.__message
