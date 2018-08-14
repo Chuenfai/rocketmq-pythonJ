@@ -25,7 +25,7 @@ from jpype import *
 jvmPath = getDefaultJVMPath()
 startJVM(
     jvmPath,
-    settings.JVM_OPTIONS_TUPLE
+    JVM_OPTIONS_TUPLE
 )               
 
 _MessageJ = JPackage('org.apache.rocketmq.common.message').Message
