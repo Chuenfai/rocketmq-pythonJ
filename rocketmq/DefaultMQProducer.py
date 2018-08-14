@@ -1,6 +1,6 @@
-from jpype import *
 import logging
 import time
+from jpype import *
 
 logger = logging.getLogger("MQProducer")
 

@@ -3,18 +3,18 @@
 import sys
 import os
 import time
-sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
+# sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 from jpype import *
-import settings
+from rocketmq import Settings
 
 jvmPath = getDefaultJVMPath()
 startJVM(
     jvmPath, 
-    settings.JVM_RUN_MODE, 
-    settings.JVM_HEAP_XMS, 
-    settings.JVM_HEAP_XMX, 
-    settings.JVM_HEAP_XMN,
-    settings.JAVA_EXT_DIRS
+    Settings.JVM_RUN_MODE, 
+    Settings.JVM_HEAP_XMS, 
+    Settings.JVM_HEAP_XMX, 
+    Settings.JVM_HEAP_XMN,
+    Settings.JAVA_EXT_DIRS
 )
 
 import threading

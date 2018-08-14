@@ -1,6 +1,6 @@
 from jpype import *
 
-# __all__ = ['SendStatus', 'ConsumeConcurrentlyStatus']
+__all__ = ['SendStatus', 'ConsumeConcurrentlyStatus']
 
 _SendStatusJ = JPackage('org.apache.rocketmq.client.producer').SendStatus
 _ConsumerConcurrentlyStatusJ = JPackage('org.apache.rocketmq.client.consumer.listener').ConsumerConcurrentlyStatus

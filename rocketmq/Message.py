@@ -1,5 +1,5 @@
-from jpype import *
 import logging
+from jpype import *
 
 __all__ = ['Message']
 

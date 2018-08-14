@@ -1,7 +1,7 @@
 from jpype import *
+from rocketmq.Status import *
 
 __all__ = ['msgListenerConcurrentlyProxy']
-from Status import *
 
 class MessageListenerConcurrently:
     
