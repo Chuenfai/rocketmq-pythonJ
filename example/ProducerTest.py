@@ -75,4 +75,4 @@ for i in range(10):
     print(res)
 
 shutdownProducer(producer)
-shutdownENV()
+# shutdownENV()
