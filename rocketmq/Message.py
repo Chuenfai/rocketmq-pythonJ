@@ -5,7 +5,7 @@ __all__ = ['Message']
 
 __MessageJ = JPackage('org.apache.rocketmq.common.message').Message
 
-class Message:
+class Message(object):
 
     def __init__(self, topic, tags, keys, body):
 
@@ -22,5 +22,3 @@ class Message:
 
     def getMessage(self):
         return self.__message
-
-    pass
