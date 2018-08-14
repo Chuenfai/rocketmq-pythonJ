@@ -70,7 +70,9 @@ startProducer(producer)
 
 for i in range(10):
     msg = buildMessage('PythonTest', '', '', ('message ' + str(i)).encode('utf-8'))
-    print(sendMessage(producer, msg))
+    res = sendMessage(producer, msg)
+    print(type(res))
+    print(res)
 
 shutdownProducer(producer)
 shutdownENV()
