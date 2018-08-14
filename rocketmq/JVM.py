@@ -3,7 +3,7 @@ from rocketmq import Settings
 
 class JVM:
 
-    def start():
+    def start(self):
         jvmPath = getDefaultJVMPath()
         startJVM(
             jvmPath, 
@@ -14,6 +14,6 @@ class JVM:
             Settings.JAVA_EXT_DIRS
         )
 
-    def shutdown():
+    def shutdown(self):
         shutdownJVM()
         
