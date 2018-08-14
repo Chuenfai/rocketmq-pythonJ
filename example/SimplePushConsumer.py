@@ -10,7 +10,7 @@ def processMessages(messages):
 
 consumer = buildPushConsumer('python_push_consumer', '10.61.2.125:9876')
 subscribe(consumer, 'PythonTest', '')
-setConsumerClientIP('10.61.2.125')
+setConsumerClientIP(consumer, '10.61.2.125')
 
 registerListener(consumer, processMessages)
 consumer.start()
