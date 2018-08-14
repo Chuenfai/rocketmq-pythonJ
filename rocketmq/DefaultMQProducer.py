@@ -11,7 +11,8 @@ MQClientExceptionJ = JPackage('org.apache.rocketmq.client.producer').MQClientExc
 SendResultJ = JPackage('org.apache.rocketmq.client.producer').SendResult
 
 class DefaultMQProducer(object):
-
+    """
+    """
     def __init__(self, groupName, nameServer):
         self.__producerGroup = groupName
         self.__nameServer = nameServer
