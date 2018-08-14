@@ -38,5 +38,4 @@ class DefaultMQProducer(object):
 
     def shutdown(self):
         self.__producer.shutdown()
-        shutdownJVM()
         pass
