@@ -1,7 +1,7 @@
-# import sys
-# import os
-# import time
-# sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
+import sys
+import os
+import time
+sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 
 # from rocketmq import Settings
 
