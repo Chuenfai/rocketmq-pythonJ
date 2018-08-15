@@ -26,10 +26,10 @@ from inspect import isfunction
 jvmPath = getDefaultJVMPath()
 startJVM(
     jvmPath,
-    JAVA_OPTIONS_DICT['JVM_RUN_MODE'], 
-    JAVA_OPTIONS_DICT['JVM_HEAP_XMS'], 
-    JAVA_OPTIONS_DICT['JVM_HEAP_XMX'], 
-    JAVA_OPTIONS_DICT['JVM_HEAP_XMN'],
+    "-Xms8g", 
+    '-Xmx8g', 
+    '-Xmn4g', 
+    '-server',
     JAVA_EXT_DIRS
 )
 # startJVM(
