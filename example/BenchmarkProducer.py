@@ -44,6 +44,17 @@ def send(producer, number):
     with SEND_LOCK:
         countdown -= 1
 
+producer = buildProducer(TOPIC, NAMESRV)
+startProducer(producer)
+print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, THREAD_NUM, MESSAGE_SIZE, MESSAGE_NUM, ))
+
+tmp = MESSAGE_NUM / THREAD_NUM
+for i in range(THREAD_NUM):
+    if i < THREAD_NUM - 1:
+        Thread(target=send, args=(producer, tmp, )).start()
+    else:
+        Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, )).start()
+
 def sampling(producer):
     last = 0
     start = time.time()
@@ -55,17 +66,5 @@ def sampling(producer):
             break
     print("cost time: %fs" % (time.time() - start, ))
     shutdownProducer(producer)
-
-
-producer = buildProducer(TOPIC, NAMESRV)
-startProducer(producer)
-print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, THREAD_NUM, MESSAGE_SIZE, MESSAGE_NUM, ))
-
-tmp = MESSAGE_NUM / THREAD_NUM
-for i in range(THREAD_NUM):
-    if i < THREAD_NUM - 1:
-        Thread(target=send, args=(producer, tmp, )).start()
-    else:
-        Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, ).start()
 
 Thread(target=sampling, args=(producer, )).start()
