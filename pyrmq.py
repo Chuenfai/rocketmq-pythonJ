@@ -83,8 +83,8 @@ def registerListener(consumer, process):
         raise Exception("second argument must be a function.")
     else:
         def consumeMessage_(messages, context):
+            print('-----consume success----')
             if process(messages):
-                print('-----consume success----')
                 return ConsumeConcurrentlyStatus['SUCCESS']
             else:
                 return ConsumeConcurrentlyStatus['RECONSUME_LATER']
