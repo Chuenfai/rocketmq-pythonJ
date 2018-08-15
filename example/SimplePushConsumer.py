@@ -5,6 +5,7 @@ sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 from pyrmq import *
 
 def processMessages(messages):
+    print('-----consume success----')
     for msg in messages:
         print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
     return True
