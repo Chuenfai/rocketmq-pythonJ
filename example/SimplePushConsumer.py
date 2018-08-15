@@ -5,9 +5,10 @@ sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 from pyrmq import *
 
 def processMessages(messages):
-    print('-----consume success----')
     for msg in messages:
-        print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
+        print(type(msg))
+        print(msg)
+        # print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
     return True
 
 consumer = buildPushConsumer('python_push_consumer', '10.61.2.125:9876')
