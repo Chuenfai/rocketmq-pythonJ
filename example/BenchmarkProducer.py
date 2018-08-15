@@ -55,7 +55,7 @@ for i in range(THREAD_NUM):
         Thread(target=send, args=(producer, tmp, )).start()
     else:
         Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, )).start()
-    print('thread ' + i + 'started.')
+    print('thread ' + str(i) + 'started.')
 
 def sampling(producer):
     global COUNT_DOWN, SEND_MESSAGE_TOTAL
