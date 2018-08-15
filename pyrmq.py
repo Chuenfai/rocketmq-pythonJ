@@ -42,7 +42,7 @@ startJVM(
     '-XX:MaxDirectMemorySize=15g',
     '-XX:-OmitStackTraceInFastThrow',
     '-XX:+AlwaysPreTouch',
-    '-XX:-UseLargePages -XX:-UseBiasedLocking'
+    '-XX:-UseLargePages -XX:-UseBiasedLocking',
     JAVA_EXT_DIRS
 )
 # startJVM(
