@@ -40,6 +40,22 @@ startJVM(
 _MessageJ = JPackage('org.apache.rocketmq.common.message').Message
 _DefaultMQProducerJ = JPackage('org.apache.rocketmq.client.producer').DefaultMQProducer
 _DefaultMQPushConsumerJ = JPackage('org.apache.rocketmq.client.consumer').DefaultMQPushConsumer
+_SendStatusJ = JPackage('org.apache.rocketmq.client.producer').SendStatus
+_ConsumerConcurrentlyStatusJ = JPackage('org.apache.rocketmq.client.consumer.listener').ConsumerConcurrentlyStatus
+_ConsumeOrderlyStatusJ = JPackage('org.apache.rocketmq.client.consumer.listener').ConsumeOrderlyStatus
+
+
+SendStatus = {
+    'SEND_OK': _SendStatusJ.SEND_OK,
+    'FLUSH_DISK_TIMEOUT': _SendStatusJ.FLUSH_DISK_TIMEOUT,
+    'FLUSH_SLAVE_TIMEOUT': _SendStatusJ.FLUSH_SLAVE_TIMEOUT,
+    'SLAVE_NOT_AVAILABLE': _SendStatusJ.SLAVE_NOT_AVAILABLE
+}
+ConsumeConcurrentlyStatus = {
+    'SUCCESS': _ConsumerConcurrentlyStatusJ.SUCCESS,
+    'RECONSUME_LATER': _ConsumerConcurrentlyStatusJ.RECONSUME_LATER
+}
+
 
 def buildMessage(topic, tags, keys, body):
     """ body must be type of bytes.
@@ -83,7 +99,6 @@ def registerListener(consumer, process):
         raise Exception("second argument must be a function.")
     else:
         def consumeMessage_(messages, context):
-            
             if process(messages):
                 return ConsumeConcurrentlyStatus['SUCCESS']
             else:
