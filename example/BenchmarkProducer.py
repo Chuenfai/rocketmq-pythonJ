@@ -52,10 +52,11 @@ print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, 
 tmp = MESSAGE_NUM / THREAD_NUM
 for i in range(THREAD_NUM):
     if i < THREAD_NUM - 1:
-        Thread(target=send, args=(producer, tmp, )).start()
+        t = Thread(target=send, args=(producer, tmp, ))
     else:
-        Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, )).start()
-    print('thread ' + str(i) + 'started.')
+        t = Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, ))
+    t.start()
+    print('thread ' + t.getName() + 'started.\n')
 
 def sampling(producer):
     global COUNT_DOWN, SEND_MESSAGE_TOTAL
