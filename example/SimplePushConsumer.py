@@ -6,7 +6,7 @@ from pyrmq import *
 
 def processMessages(messages):
     for msg in messages:
-        print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody().decode('utf-8') + ']')
+        print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
     return True
 
 consumer = buildPushConsumer('python_push_consumer', '10.61.2.125:9876')
