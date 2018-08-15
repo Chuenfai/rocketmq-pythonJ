@@ -84,6 +84,7 @@ def registerListener(consumer, process):
     else:
         def consumeMessage_(messages, context):
             if process(messages):
+                print('-----consume success----')
                 return ConsumeConcurrentlyStatus['SUCCESS']
             else:
                 return ConsumeConcurrentlyStatus['RECONSUME_LATER']
