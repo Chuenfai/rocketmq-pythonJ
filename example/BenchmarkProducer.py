@@ -36,13 +36,14 @@ message = ""
 while len(message) < MESSAGE_SIZE:
     message += MESSAGE
 
-countdown = THREAD_NUM
+COUNT_DOWN = THREAD_NUM
 def send(producer, number):
+    global SEND_MESSAGE_TOTAL, MESSAGE_NUM, SEND_LOCK, COUNT_DOWN
     while SEND_MESSAGE_TOTAL < MESSAGE_NUM:
         sendMessage(producer, message.encode('utf-8'))
         SEND_MESSAGE_TOTAL += 1
     with SEND_LOCK:
-        countdown -= 1
+        COUNT_DOWN -= 1
 
 producer = buildProducer(TOPIC, NAMESRV)
 startProducer(producer)
@@ -56,13 +57,14 @@ for i in range(THREAD_NUM):
         Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, )).start()
 
 def sampling(producer):
+    global COUNT_DOWN, SEND_MESSAGE_TOTAL
     last = 0
     start = time.time()
     while True:
         time.sleep(1000)
         print("send TPS: %d, total message: %d" % (SEND_MESSAGE_TOTAL - last, SEND_MESSAGE_TOTAL, ))
         last = SEND_MESSAGE_TOTAL
-        if countdown <= 0:
+        if COUNT_DOWN <= 0:
             break
     print("cost time: %fs" % (time.time() - start, ))
     shutdownProducer(producer)
