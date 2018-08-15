@@ -11,7 +11,7 @@ MESSAGE_NUM = 1000  # 100w total defalut
 MESSAGE_SIZE = 1024  # 1kb per message default
 THREAD_NUM = 64  # 64 threads to send message default
 MESSAGE = "杨春晖123abc#$%"
-TOPIC = 'python_producer'
+TOPIC = 'PythonBenchmarkTest'
 NAMESRV = '10.61.2.125:9876'
 
 SEND_LOCK = Lock()
