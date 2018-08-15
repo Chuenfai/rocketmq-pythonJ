@@ -30,6 +30,19 @@ startJVM(
     '-Xmx8g', 
     '-Xmn4g', 
     '-server',
+    '-XX:+UseG1GC',
+    '-XX:G1HeapRegionSize=16m',
+    '-XX:G1ReservePercent=25',
+    '-XX:InitiatingHeapOccupancyPercent=30',
+    '-XX:SoftRefLRUPolicyMSPerMB=0',
+    '-XX:SurvivorRatio=8'
+    '-XX:+UseGCLogFileRotation',
+    '-XX:NumberOfGCLogFiles=5',
+    '-XX:GCLogFileSize=30m',
+    '-XX:MaxDirectMemorySize=15g',
+    '-XX:-OmitStackTraceInFastThrow',
+    '-XX:+AlwaysPreTouch',
+    '-XX:-UseLargePages -XX:-UseBiasedLocking'
     JAVA_EXT_DIRS
 )
 # startJVM(
