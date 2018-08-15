@@ -69,9 +69,3 @@ for i in range(THREAD_NUM):
         Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, ).start()
 
 Thread(target=sampling, args=(producer, )).start()
-# for i in range(10):
-#     msg = buildMessage('PythonTest', '', '', ('杨春晖123abc#$% ' + str(i)).encode('utf-8'))
-#     res = sendMessage(producer, msg)
-#     print(res.getSendStatus())
-
-# shutdownProducer(producer)
