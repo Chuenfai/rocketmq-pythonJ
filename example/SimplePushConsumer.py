@@ -6,8 +6,8 @@ from pyrmq import *
 
 def processMessages(messages):
     for msg in messages:
-        print(type(msg))
-        print(msg)
+        print(msg.getTopic())
+        print(msg.getMsgId())
         # print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + msg.getBody() + ']')
     return True
 
