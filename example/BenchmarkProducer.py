@@ -5,7 +5,7 @@ import os
 import time
 from threading import Thread, Lock
 sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
-from pyrmq import *
+# from pyrmq import *
 
 MESSAGE_NUM = 1000  # 100w total defalut
 MESSAGE_SIZE = 1024  # 1kb per message default
@@ -88,6 +88,6 @@ def sampling(producer):
             break
     print("cost time: %fs" % (time.time() - start, ))
 
-t = Thread(target=sampling, args=(producer, ))
+t = Thread(target=sampling, args=("producer", ))
 t.start()
 print('thread ' + t.getName() + 'started.\n')
