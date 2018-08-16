@@ -57,7 +57,7 @@ for i in range(THREAD_NUM):
     if i < THREAD_NUM - 1:
         t = Thread(target=send, args=(producer, tmp, ))
     else:
-        t = Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, ))
+        t = Thread(target=send, args=(producer, MESSAGE_NUM - i * tmp, ))
     t.start()
     print('thread %s started, which will produce %d messages.' % (t.getName(), tmp, ))
 # send(producer, tmp)
