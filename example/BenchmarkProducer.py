@@ -40,9 +40,9 @@ SEND_MESSAGE = buildMessage(TOPIC, '', '', m.encode('utf-8'))
 
 COUNT_DOWN = THREAD_NUM
 def send(producer, number):
-    global SEND_MESSAGE_TOTAL, MESSAGE_NUM, SEND_LOCK, COUNT_DOWN
+    global SEND_MESSAGE_TOTAL, MESSAGE_NUM, SEND_LOCK, COUNT_DOWN, SEND_MESSAGE
     while SEND_MESSAGE_TOTAL < MESSAGE_NUM:
-        sendMessage(producer, message.encode('utf-8'))
+        sendMessage(producer, SEND_MESSAGE)
         SEND_MESSAGE_TOTAL += 1
     with SEND_LOCK:
         COUNT_DOWN -= 1
