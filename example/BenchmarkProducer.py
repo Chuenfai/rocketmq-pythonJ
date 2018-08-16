@@ -80,7 +80,7 @@ def sampling(producer):
     last = 0
     start = time.time()
     while True:
-        time.sleep(1000)
+        time.sleep(1)
         print("send TPS: %d, total message: %d" % (SEND_MESSAGE_TOTAL - last, SEND_MESSAGE_TOTAL, ))
         SEND_MESSAGE_TOTAL = 0
         last = SEND_MESSAGE_TOTAL
@@ -90,4 +90,4 @@ def sampling(producer):
 
 t = Thread(target=sampling, args=("producer", ))
 t.start()
-print('thread ' + t.getName() + 'started.\n')
+print('thread ' + t.getName() + ' started.\n')
