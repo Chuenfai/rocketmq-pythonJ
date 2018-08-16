@@ -42,8 +42,7 @@ COUNT_DOWN = THREAD_NUM
 def send(producer, number):
     global SEND_MESSAGE_TOTAL, SEND_LOCK, COUNT_DOWN, SEND_MESSAGE
     while number:
-        # sendMessage(producer, SEND_MESSAGE)
-        print(SEND_MESSAGE_TOTAL)
+        sendMessage(producer, SEND_MESSAGE)
         SEND_MESSAGE_TOTAL += 1
         number -= 1
     print('message send finished!')
@@ -79,7 +78,7 @@ def sampling(producer):
             stop = time.time()
             break
     print("cost time: %fs" % (stop - start, ))
-    shutdownProducer(producer)
+    # shutdownProducer(producer)
 
 # def sampling(producer):
 #     global COUNT_DOWN, SEND_MESSAGE_TOTAL
