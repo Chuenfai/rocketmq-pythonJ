@@ -63,7 +63,9 @@ tmp = int(MESSAGE_NUM / THREAD_NUM)
 #     t = Thread(target=send, args=(producer, send_per_thread, ))
 #     t.start()
 #     print('thread %s started, which will produce %d messages.' % (t.getName(), tmp, ))
-send(producer, tmp)
+t = Thread(target=send, args=(producer, tmp, ))
+t.start()
+# send(producer, tmp)
 
 def sampling(producer):
     global COUNT_DOWN, SEND_MESSAGE_TOTAL
