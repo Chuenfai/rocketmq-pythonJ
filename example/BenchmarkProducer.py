@@ -45,8 +45,8 @@ def send(producer, number):
         sendMessage(producer, SEND_MESSAGE)
         SEND_MESSAGE_TOTAL += 1
     print('message send finished!')
-    # with SEND_LOCK:
-    #     COUNT_DOWN -= 1
+    with SEND_LOCK:
+        COUNT_DOWN -= 1
 
 producer = buildProducer(PRODUCER_GROUP, NAMESRV)
 startProducer(producer)
