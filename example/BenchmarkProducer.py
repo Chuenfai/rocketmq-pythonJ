@@ -91,6 +91,6 @@ def sampling(producer):
 #             break
 #     print("cost time: %fs" % (time.time() - start, ))
 
-t = Thread(target=sampling, args=("producer", ))
+t = Thread(target=sampling, args=(producer, ))
 t.start()
 print('sampling thread ' + t.getName() + ' started.\n')
