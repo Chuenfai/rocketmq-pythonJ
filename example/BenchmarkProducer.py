@@ -41,9 +41,11 @@ SEND_MESSAGE = buildMessage(TOPIC, '', '', m.encode('utf-8'))
 COUNT_DOWN = THREAD_NUM
 def send(producer, number):
     global SEND_MESSAGE_TOTAL, SEND_LOCK, COUNT_DOWN, SEND_MESSAGE
-    while SEND_MESSAGE_TOTAL < number:
-        sendMessage(producer, SEND_MESSAGE)
+    while number:
+        # sendMessage(producer, SEND_MESSAGE)
+        print(SEND_MESSAGE_TOTAL)
         SEND_MESSAGE_TOTAL += 1
+        number -= 1
     print('message send finished!')
     with SEND_LOCK:
         COUNT_DOWN -= 1
@@ -55,9 +57,10 @@ print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, 
 tmp = int(MESSAGE_NUM / THREAD_NUM)
 for i in range(THREAD_NUM):
     if i < THREAD_NUM - 1:
-        t = Thread(target=send, args=(producer, tmp, ))
+        send_per_thread = tmp
     else:
-        t = Thread(target=send, args=(producer, MESSAGE_NUM - i * tmp, ))
+        send_per_thread = MESSAGE_NUM - i * tmp
+    t = Thread(target=send, args=(producer, send_per_thread, ))
     t.start()
     print('thread %s started, which will produce %d messages.' % (t.getName(), tmp, ))
 # send(producer, tmp)
