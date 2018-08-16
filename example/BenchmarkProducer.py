@@ -55,15 +55,15 @@ startProducer(producer)
 print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, THREAD_NUM, MESSAGE_SIZE, MESSAGE_NUM, ))
 
 tmp = int(MESSAGE_NUM / THREAD_NUM)
-for i in range(THREAD_NUM):
-    if i < THREAD_NUM - 1:
-        send_per_thread = tmp
-    else:
-        send_per_thread = MESSAGE_NUM - i * tmp
-    t = Thread(target=send, args=(producer, send_per_thread, ))
-    t.start()
-    print('thread %s started, which will produce %d messages.' % (t.getName(), tmp, ))
-# send(producer, tmp)
+# for i in range(THREAD_NUM):
+#     if i < THREAD_NUM - 1:
+#         send_per_thread = tmp
+#     else:
+#         send_per_thread = MESSAGE_NUM - i * tmp
+#     t = Thread(target=send, args=(producer, send_per_thread, ))
+#     t.start()
+#     print('thread %s started, which will produce %d messages.' % (t.getName(), tmp, ))
+send(producer, tmp)
 
 def sampling(producer):
     global COUNT_DOWN, SEND_MESSAGE_TOTAL
