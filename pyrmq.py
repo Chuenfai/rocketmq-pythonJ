@@ -79,7 +79,6 @@ def startProducer(producer):
 
 def shutdownProducer(producer):
     producer.shutdown()
-    print('producer shutdown.')
 
 def buildPushConsumer(groupname, namesrv):
     consumer = _DefaultMQPushConsumerJ(JString(groupname))
@@ -114,5 +113,4 @@ def shutdownConsumer(consumer):
     consumer.shutdown()
 
 def shutdownENV():
-    print('jvm shutdown.')
     shutdownJVM()
