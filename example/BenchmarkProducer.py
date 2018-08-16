@@ -77,4 +77,4 @@ def sampling(producer):
 
 # t = Thread(target=sampling, args=(producer, ))
 # t.start()
-print('thread ' + t.getName() + 'started.\n')
+# print('thread ' + t.getName() + 'started.\n')
