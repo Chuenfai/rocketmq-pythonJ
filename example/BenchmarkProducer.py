@@ -40,8 +40,8 @@ SEND_MESSAGE = buildMessage(TOPIC, '', '', m.encode('utf-8'))
 
 COUNT_DOWN = THREAD_NUM
 def send(producer, number):
-    global SEND_MESSAGE_TOTAL, MESSAGE_NUM, SEND_LOCK, COUNT_DOWN, SEND_MESSAGE
-    while SEND_MESSAGE_TOTAL < MESSAGE_NUM:
+    global SEND_MESSAGE_TOTAL, SEND_LOCK, COUNT_DOWN, SEND_MESSAGE
+    while SEND_MESSAGE_TOTAL < number:
         sendMessage(producer, SEND_MESSAGE)
         SEND_MESSAGE_TOTAL += 1
     with SEND_LOCK:
@@ -52,14 +52,14 @@ startProducer(producer)
 print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, THREAD_NUM, MESSAGE_SIZE, MESSAGE_NUM, ))
 
 tmp = int(MESSAGE_NUM / THREAD_NUM)
-print(tmp)
-for i in range(THREAD_NUM):
-    if i < THREAD_NUM - 1:
-        t = Thread(target=send, args=(producer, tmp, ))
-    else:
-        t = Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, ))
-    t.start()
-    print('thread %s started, which will produce %d messages.' % (t.getName(), tmp, ))
+# for i in range(THREAD_NUM):
+#     if i < THREAD_NUM - 1:
+#         t = Thread(target=send, args=(producer, tmp, ))
+#     else:
+#         t = Thread(target=send, args=(producer, MESSAGE_NUM - (i + 1) * tmp, ))
+#     t.start()
+#     print('thread %s started, which will produce %d messages.' % (t.getName(), tmp, ))
+sendMessage(producer, tmp)
 
 def sampling(producer):
     global COUNT_DOWN, SEND_MESSAGE_TOTAL
