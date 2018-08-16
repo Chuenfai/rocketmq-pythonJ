@@ -10,8 +10,9 @@ from pyrmq import *
 MESSAGE_NUM = 1000  # 100w total defalut
 MESSAGE_SIZE = 1024  # 1kb per message default
 THREAD_NUM = 64  # 64 threads to send message default
-MESSAGE = "杨春晖123abc#$%"
+MESSAGE = '杨春晖123abc#$%'
 TOPIC = 'PythonBenchmarkTest'
+PRODUCER_GROUP = 'python_benchmark_producer'
 NAMESRV = '10.61.2.125:9876'
 
 SEND_LOCK = Lock()
@@ -32,9 +33,10 @@ elif len(sys.argv) == 4:
     if int(sys.argv[3]):
         THREAD_NUM = sys.argv[3]
 
-message = ""
-while len(message) < MESSAGE_SIZE:
-    message += MESSAGE
+m = ""
+while len(m) < MESSAGE_SIZE:
+    m += MESSAGE
+SEND_MESSAGE = buildMessage(TOPIC, '', '', m.encode('utf-8'))
 
 COUNT_DOWN = THREAD_NUM
 def send(producer, number):
@@ -45,7 +47,7 @@ def send(producer, number):
     with SEND_LOCK:
         COUNT_DOWN -= 1
 
-producer = buildProducer(TOPIC, NAMESRV)
+producer = buildProducer(PRODUCER_GROUP, NAMESRV)
 startProducer(producer)
 print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, THREAD_NUM, MESSAGE_SIZE, MESSAGE_NUM, ))
 
