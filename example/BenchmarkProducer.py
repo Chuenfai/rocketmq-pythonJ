@@ -39,10 +39,11 @@ while len(m) < MESSAGE_SIZE:
 SEND_MESSAGE = buildMessage(TOPIC, '', '', m.encode('utf-8'))
 
 COUNT_DOWN = THREAD_NUM
-def send(producer, number):
+def send(p, number):
     global SEND_MESSAGE_TOTAL, SEND_LOCK, COUNT_DOWN, SEND_MESSAGE
     while number:
-        sendMessage(producer, SEND_MESSAGE)
+        res = sendMessage(p, SEND_MESSAGE)
+        print(res.getSendStatus() + " total: " + str(number))
         SEND_MESSAGE_TOTAL += 1
         number -= 1
     print('message send finished!')
