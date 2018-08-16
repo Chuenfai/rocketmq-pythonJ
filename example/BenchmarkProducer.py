@@ -51,7 +51,7 @@ producer = buildProducer(PRODUCER_GROUP, NAMESRV)
 startProducer(producer)
 print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, THREAD_NUM, MESSAGE_SIZE, MESSAGE_NUM, ))
 
-tmp = int(MESSAGE_NUM / THREAD_NUM)
+tmp = MESSAGE_NUM / THREAD_NUM
 print(tmp)
 for i in range(THREAD_NUM):
     if i < THREAD_NUM - 1:
