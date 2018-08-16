@@ -74,4 +74,6 @@ def sampling(producer):
     print("cost time: %fs" % (time.time() - start, ))
     shutdownProducer(producer)
 
-Thread(target=sampling, args=(producer, )).start()
+t = Thread(target=sampling, args=(producer, ))
+t.start()
+print('thread ' + t.getName() + 'started.\n')
