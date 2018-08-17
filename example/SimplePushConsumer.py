@@ -9,7 +9,7 @@ NUMBER = 0
 def processMessages(messages):
     global NUMBER
     for msg in messages:
-        print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + NUMBER + ']')
+        print('[' + msg.getTopic() + '] [' + msg.getMsgId() + '] [' + str(NUMBER) + ']')
         NUMBER += 1
     return True
 
