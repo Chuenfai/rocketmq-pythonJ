@@ -30,8 +30,8 @@ def sampling():
     stop = 0
     while True:
         time.sleep(1)
-        print("consume TPS: %d, total message: %d" % (SEND_MESSAGE_TOTAL - last, SEND_MESSAGE_TOTAL, ))
-        last = SEND_MESSAGE_TOTAL
+        print("consume TPS: %d, total message: %d" % (CONSUME_MESSAGE_TOTAL - last, CONSUME_MESSAGE_TOTAL, ))
+        last = CONSUME_MESSAGE_TOTAL
 
 t = Thread(target=sampling)
 t.start()
