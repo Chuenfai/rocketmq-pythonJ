@@ -103,6 +103,7 @@ def registerListener(consumer, process):
     else:
         def consumeMessage_(messages, context):
             if process(messages):
+                print('--------------------------------------------')
                 return _ConsumerConcurrentlyStatusJ.CONSUME_SUCCESS
             else:
                 return _ConsumerConcurrentlyStatusJ.RECONSUME_LATER
