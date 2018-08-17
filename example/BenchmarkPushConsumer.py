@@ -15,6 +15,7 @@ NAMESRV = '10.61.2.125:9876'
 CONSUME_MESSAGE_TOTAL = 0
 
 def processMessages(messages):
+    global CONSUME_MESSAGE_TOTAL
     for msg in messages:
         CONSUME_MESSAGE_TOTAL += 1
     return True
