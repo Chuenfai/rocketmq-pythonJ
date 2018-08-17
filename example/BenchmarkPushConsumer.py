@@ -8,6 +8,7 @@ sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 from pyrmq import *
 
 TOPIC = 'PythonBenchmarkTest'
+TAGS = ''
 CONSUMER_GROUP = 'python_benchmark_push_consumer'
 NAMESRV = '10.61.2.125:9876'
 
@@ -19,6 +20,7 @@ def processMessages(messages):
     return True
 
 consumer = buildPushConsumer(CONSUMER_GROUP, NAMESRV)
+subscribe(consumer, TOPIC, TAGS)
 registerListener(consumer, processMessages)
 startConsumer(consumer)
 print("topic: %s, consumer: %s" % (TOPIC, CONSUMER_GROUP, ))
