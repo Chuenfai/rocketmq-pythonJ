@@ -9,7 +9,7 @@ from pyrmq import *
 
 MESSAGE_NUM = 1000  # 100w total defalut
 MESSAGE_SIZE = 1024  # 1kb per message default
-THREAD_NUM = 1  # 64 threads to send message default
+# THREAD_NUM = 1  # 64 threads to send message default
 MESSAGE = '杨春晖123abc#$%'
 TOPIC = 'PythonBenchmarkTest'
 PRODUCER_GROUP = 'python_benchmark_producer'
@@ -36,25 +36,12 @@ elif len(sys.argv) == 4:
 m = ""
 while len(m) < MESSAGE_SIZE:
     m += MESSAGE
-print(m)
 SEND_MESSAGE = buildMessage(TOPIC, '', '', m.encode('utf-8'))
-
-COUNT_DOWN = THREAD_NUM
-def send(p, number):
-    global SEND_MESSAGE_TOTAL, SEND_LOCK, COUNT_DOWN, SEND_MESSAGE
-    while number:
-        res = sendMessage(p, SEND_MESSAGE)
-        SEND_MESSAGE_TOTAL += 1
-        number -= 1
-    print('message send finished!')
-    # with SEND_LOCK:
-    #     COUNT_DOWN -= 1
 
 producer = buildProducer(PRODUCER_GROUP, NAMESRV)
 startProducer(producer)
 print("topic: %s, thread count: %d, message size: %d, total send: %d" % (TOPIC, THREAD_NUM, MESSAGE_SIZE, MESSAGE_NUM, ))
 
-tmp = int(MESSAGE_NUM / THREAD_NUM)
 # for i in range(THREAD_NUM):
 #     if i < THREAD_NUM - 1:
 #         send_per_thread = tmp
@@ -63,9 +50,8 @@ tmp = int(MESSAGE_NUM / THREAD_NUM)
 #     t = Thread(target=send, args=(producer, send_per_thread, ))
 #     t.start()
 #     print('thread %s started, which will produce %d messages.' % (t.getName(), tmp, ))
-t = Thread(target=send, args=(producer, tmp, ))
-t.start()
-# send(producer, tmp)
+# t = Thread(target=send, args=(producer, tmp, ))
+# t.start()
 
 def sampling(producer):
     global COUNT_DOWN, SEND_MESSAGE_TOTAL
@@ -99,3 +85,10 @@ def sampling(producer):
 t = Thread(target=sampling, args=(producer, ))
 t.start()
 print('sampling thread ' + t.getName() + ' started.\n')
+
+# only one thread to produce message
+while MESSAGE_NUM:
+    res = sendMessage(producer, SEND_MESSAGE)
+    SEND_MESSAGE_TOTAL += 1
+    MESSAGE_NUM -= 1
+print('message send finished!')
