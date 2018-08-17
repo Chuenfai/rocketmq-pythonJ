@@ -9,7 +9,7 @@ from pyrmq import *
 
 MESSAGE_NUM = 1000  # 100w total defalut
 MESSAGE_SIZE = 1024  # 1kb per message default
-# THREAD_NUM = 1  # 64 threads to send message default
+THREAD_NUM = 1  # 64 threads to send message default
 MESSAGE = '杨春晖123abc#$%'
 TOPIC = 'PythonBenchmarkTest'
 PRODUCER_GROUP = 'python_benchmark_producer'
