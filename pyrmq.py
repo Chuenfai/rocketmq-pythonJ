@@ -55,7 +55,7 @@ _MessageJ = JPackage('org.apache.rocketmq.common.message').Message
 _DefaultMQProducerJ = JPackage('org.apache.rocketmq.client.producer').DefaultMQProducer
 _DefaultMQPushConsumerJ = JPackage('org.apache.rocketmq.client.consumer').DefaultMQPushConsumer
 _SendStatusJ = JPackage('org.apache.rocketmq.client.producer').SendStatus
-_ConsumerConcurrentlyStatusJ = JPackage('org.apache.rocketmq.client.consumer.listener').ConsumerConcurrentlyStatus
+_ConsumerConcurrentlyStatusJ = JPackage('org.apache.rocketmq.client.consumer.listener').ConsumeConcurrentlyStatus
 _ConsumeOrderlyStatusJ = JPackage('org.apache.rocketmq.client.consumer.listener').ConsumeOrderlyStatus
 
 def buildMessage(topic, tags, keys, body):
