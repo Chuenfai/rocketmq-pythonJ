@@ -7,7 +7,7 @@ from threading import Thread, Lock
 sys.path.append(os.path.split(os.path.realpath(__file__))[0] + '/..')
 from pyrmq import *
 
-MESSAGE_NUM = 1000  # 100w total defalut
+MESSAGE_NUM = 1000 * 1000  # 100w total defalut
 MESSAGE_SIZE = 1024  # 1kb per message default
 COUNT_DOWN = THREAD_NUM = 1  # 64 threads to send message default
 MESSAGE = '杨春晖123abc#$%'
