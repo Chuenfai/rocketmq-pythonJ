@@ -9,11 +9,12 @@ from pyrmq import *
 
 MESSAGE_NUM = 1000  # 100w total defalut
 MESSAGE_SIZE = 1024  # 1kb per message default
-THREAD_NUM = 1  # 64 threads to send message default
+COUNT_DOWN = THREAD_NUM = 1  # 64 threads to send message default
 MESSAGE = '杨春晖123abc#$%'
 TOPIC = 'PythonBenchmarkTest'
 PRODUCER_GROUP = 'python_benchmark_producer'
 NAMESRV = '10.61.2.125:9876'
+
 
 SEND_LOCK = Lock()
 SEND_MESSAGE_TOTAL = 0
@@ -92,3 +93,4 @@ while MESSAGE_NUM:
     SEND_MESSAGE_TOTAL += 1
     MESSAGE_NUM -= 1
 print('message send finished!')
+COUNT_DOWN = 0
