@@ -14,7 +14,7 @@ subscribe(consumer, 'PythonTest', '')
 setConsumerClientIP(consumer, '10.61.2.125')
 
 registerListener(consumer, processMessages)
-consumer.start()
+startConsumer(consumer)
 
 while True:
     time.sleep(10)

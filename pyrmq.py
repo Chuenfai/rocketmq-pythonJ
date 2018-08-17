@@ -85,6 +85,9 @@ def buildPushConsumer(groupname, namesrv):
     consumer.setNamesrvAddr(namesrv)
     return consumer
 
+def startConsumer(consumer):
+    consumer.start()
+
 def subscribe(consumer, topic, subexpression):
     consumer.subscribe(JString(topic), JString(subexpression))
 
