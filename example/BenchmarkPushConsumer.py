@@ -26,10 +26,8 @@ startConsumer(consumer)
 print("topic: %s, consumer: %s" % (TOPIC, CONSUMER_GROUP, ))
 
 def sampling():
-    global SEND_MESSAGE_TOTAL
+    global CONSUME_MESSAGE_TOTAL
     last = 0
-    start = time.time()
-    stop = 0
     while True:
         time.sleep(1)
         print("consume TPS: %d, total message: %d" % (CONSUME_MESSAGE_TOTAL - last, CONSUME_MESSAGE_TOTAL, ))
@@ -40,5 +38,5 @@ t.start()
 print('sampling thread ' + t.getName() + ' started.\n')
 
 # only one thread to produce message
-while True:
-    time.sleep(1)
+# while True:
+#     time.sleep(1)
